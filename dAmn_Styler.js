@@ -11,7 +11,7 @@ var Script_Request = Script_Request || function(id, url, query, parent){
 		
 var dAmn_Styler = {
 		'init': function(){
-			setTimeout(function(){ dAmn_Styler.check_title(dAmnChatTab_active); }, 1000);
+			dAmn_Styler.check_title(dAmnChatTab_active);
 			Whenever(window, 'dAmnChatTabs_activate', function(args){ return dAmnChatTab_active != args[0];})(function(a){ dAmn_Styler.check_title(a[0]); });
 			Whenever(dAmnChat.prototype, 'onData', function(a){
 				if(a.cmd == 'property' && a.args.p == 'title') return true;
