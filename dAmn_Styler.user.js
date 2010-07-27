@@ -17,4 +17,4 @@ var Script_Request = Script_Request || function(id, url, query, parent){
 		var self = function(onload_callback){ S.onload = function(){ onload_callback(S); }; };
 		return self; }};
 		
-var load_styler = Script_Request('whenever_events', 'http://github.com/SamM/dAmn_Styler/raw/master/dAmn_Styler.js')(function(){ alert('dAmn Styler has loaded'); });
+var load_styler = Script_Request('whenever_events', 'http://github.com/SamM/dAmn_Styler/raw/master/dAmn_Styler.js');
