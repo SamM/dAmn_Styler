@@ -9,10 +9,16 @@ var Script_Request = Script_Request || function(id, url, query, parent){
 		var self = function(onload_callback){ S.onload = function(){ onload_callback(S); return self; }; };
 		return self; }};
 		
-var dAmn = dAmn || {},
-	dAmn_Styler = {
+var dAmn_Styler = {
+		'init': function(){
+			Whenever(window, 'dAmnChatTabs_activate', function(args){ return dAmnChatTab_active != args[0];})()(function(a){ dAmn_Styler.check_title(a[0][0]); });
+			dAmn_Style.check_title(dAmnChatTab_active);
+		},
+		'chatrooms': {},
+		'stylesheets': {},
 		'current_stylesheet': null,
 		'current_room': null,
+		
 		'stylesheet_request': function(id, url, parent){
 			with(S = document.createElement('link')){
 				if(id) S.id = id;
@@ -23,16 +29,11 @@ var dAmn = dAmn || {},
 			return S;
 			}
 		},
-		'disable_current': function(){
-			this.current_stylesheet.disabled = true;
-		},
+		'disable_current': function(){ this.current_stylesheet.disabled = true; },
 		'fix_scroll': function(){
 			var fix = function(){ dAmnChats[dAmn_Styler.current_room].onResize(true); };
-			fix();
-			setTimeout(fix, 1000);
+			fix(); setTimeout(fix, 1000);
 		},
-		'chatrooms': {},
-		'stylesheets': {},
 		'chatroom_stylesheet': function(chatroom, url){
 			if(url.indexOf('http')<0) url = 'http://'+url;
 			if(this.current_stylesheet) this.current_stylesheet.disabled = true;
@@ -46,7 +47,7 @@ var dAmn = dAmn || {},
 			}
 			dAmn_Styler.fix_scroll();
 		},
-		'check_title_for_abbr': function(chatroom){
+		'check_title': function(chatroom){
 			var room = dAmnChats[chatroom];
 			if(room){
 				var title_abbrs = room.title_el.getElementsByTagName("abbr"),
@@ -62,9 +63,4 @@ var dAmn = dAmn || {},
 			}
 		}
 	};
-Script_Request('whenever_events', 'http://github.com/SamM/dAmn_Styler/raw/master/whenever.js')(function(script){
-	dAmn['switch_tab'] = function(a){ return a; };
-	Whenever(window, 'dAmnChatTabs_activate', function(args){ return dAmnChatTab_active != args[0];})()(function(a){dAmn['switch_tab'](a[0])});
-	Whenever(dAmn, 'switch_tab')()(function(a){ dAmn_Styler.check_title_for_abbr(a[0]); });
-	dAmn['switch_tab'](dAmnChatTab_active);
-});
+Script_Request('whenever_events', 'http://github.com/SamM/dAmn_Styler/raw/master/whenever.js')(function(script){ dAmn_Styler.init(); });
