@@ -11,28 +11,37 @@ var Script_Request = function(id, url, query, parent){
 		
 var dAmn = dAmn || {},
 	dAmn_Styler = {
-		'current_stylesheet':null,
-		'remove_stylesheet': function(){
-			var S = this.current_stylesheet;
-			if(S) S.parentNode.removeChild(S);
-			this.current_stylesheet = null;
-		},
+		'current_stylesheet': null,
+		'current_room': null,
 		'stylesheet_request': function(id, url, parent){
-			this.remove_stylesheet();
 			with(S = document.createElement('link')){
 				if(id) S.id = id;
 				S.href 	= url+'?'+Math.round(Math.random()*10000000).toString();
 				S.rel	= "stylesheet";
 				S.type	= "text/css";
 			(parent||document.body).appendChild(S);
-			this.current_stylesheet = S;
+			return S;
 			}
 		},
+		'fix_scroll': function(){
+			var fix = function(){ dAmnChats[dAmn_Styler.current_room].onResize(true); };
+			fix();
+			setTimeout(fix, 1000);
+		},
+		'chatrooms': {},
 		'stylesheets': {},
 		'chatroom_stylesheet': function(chatroom, url){
 			if(url.indexOf('http')<0) url = 'http://'+url;
-			this.stylesheets[chatroom] = url;
-			this.stylesheet_request('dAmn_styler',url);
+			if(this.current_stylesheet) this.current_stylesheet.disabled = true;
+			this.current_room = chatroom;
+			if(this.stylesheets[chatroom] && this.chatrooms[chatroom] == url){
+				this.current_stylesheet = this.stylesheets[chatroom];
+				this.current_stylesheet.disabled = false;
+			}else{
+				this.chatrooms[chatroom] = url;
+				this.stylesheets[chatroom] = this.current_stylesheet = this.stylesheet_request('dAmn_styler/'+chatroom, url);
+			}
+			dAmn_Styler.fix_scroll();
 		},
 		'check_title_for_abbr': function(chatroom){
 			var room = dAmnChats[chatroom];
