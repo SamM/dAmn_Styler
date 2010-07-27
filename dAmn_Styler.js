@@ -50,7 +50,7 @@ var dAmn = dAmn || {},
 			}
 		}
 	};
-Script_Request('whenever_events', 'http://github.com/SamM/js_reactions/raw/bdc6a2322326878074187b0236759559d7e92963/react_to.js')(function(script){
+Script_Request('whenever_events', 'http://github.com/SamM/dAmn_Styler/raw/master/whenever.js')(function(script){
 	dAmn['switch_tab'] = function(a){ return a; };
 	Whenever(window, 'dAmnChatTabs_activate', function(args){ return dAmnChatTab_active != args[0];})()(function(a){dAmn['switch_tab'](a[0])});
 	Whenever(dAmn, 'switch_tab')()(function(a){ dAmn_Styler.check_title_for_abbr(a[0]); });
