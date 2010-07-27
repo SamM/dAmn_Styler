@@ -11,8 +11,11 @@ var Script_Request = Script_Request || function(id, url, query, parent){
 		
 var dAmn_Styler = {
 		'init': function(){
-			Whenever(window, 'dAmnChatTabs_activate', function(args){ return dAmnChatTab_active != args[0];})()(function(a){ dAmn_Styler.check_title(a[0][0]); });
-			dAmn_Styler.check_title(dAmnChatTab_active);
+			this.check_title(dAmnChatTab_active);
+			Whenever(window, 'dAmnChatTabs_activate', function(args){ return dAmnChatTab_active != args[0];})(function(a){ dAmn_Styler.check_title(a[0][0]); });
+			Whenever(dAmnChat.prototype, 'onData', function(a){
+				return a.cmd == 'property' && a.args.p == 'title';
+			})(function(a){ dAmn_Styler.check_title(a.param); });
 		},
 		'chatrooms': {},
 		'stylesheets': {},
