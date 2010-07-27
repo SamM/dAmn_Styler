@@ -19,8 +19,9 @@ var Whenever = function(subject, action, conditions){
 			
 			subject[action] = function(){
 				var a = [].slice.call(arguments); self.tell_all(a);
-				return original(a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7],a[9],a[10]);
+				return this['__orig_'+action](a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7],a[9],a[10]);
 			};
+			subject['__orig_'+action] = original;
 		}
 		var $Self = function(listener, remove){
 			if(remove){
