@@ -1,4 +1,4 @@
-var Script_Request = function(id, url, query, parent){
+var Script_Request = Script_Request || function(id, url, query, parent){
 	query = query || {};
 	query['_random'] = Math.round(Math.random()*10000000).toString();
 	if(el = document.getElementById(id)) el.parentNode.removeChild(el);
