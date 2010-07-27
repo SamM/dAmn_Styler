@@ -13,10 +13,6 @@ var dAmn_Styler = {
 		'init': function(){
 			dAmn_Styler.check_title(dAmnChatTab_active);
 			Whenever(window, 'dAmnChatTabs_activate', function(args){ return dAmnChatTab_active != args[0];})(function(a){ dAmn_Styler.check_title(a[0]); });
-			Whenever(dAmnChat.prototype, 'onData', function(a){
-				if(a.cmd == 'property' && a.args.p == 'title') return true;
-				return false;
-			})(function(a){ dAmn_Styler.check_title(a.param); });
 		},
 		'chatrooms': {},
 		'stylesheets': {},
