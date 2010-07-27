@@ -12,7 +12,7 @@ var Script_Request = Script_Request || function(id, url, query, parent){
 var dAmn_Styler = {
 		'init': function(){
 			Whenever(window, 'dAmnChatTabs_activate', function(args){ return dAmnChatTab_active != args[0];})()(function(a){ dAmn_Styler.check_title(a[0][0]); });
-			dAmn_Style.check_title(dAmnChatTab_active);
+			dAmn_Styler.check_title(dAmnChatTab_active);
 		},
 		'chatrooms': {},
 		'stylesheets': {},
