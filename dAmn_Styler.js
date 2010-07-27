@@ -23,6 +23,9 @@ var dAmn = dAmn || {},
 			return S;
 			}
 		},
+		'disable_current': function(){
+			this.current_stylesheet.disabled = true;
+		},
 		'fix_scroll': function(){
 			var fix = function(){ dAmnChats[dAmn_Styler.current_room].onResize(true); };
 			fix();
@@ -54,8 +57,8 @@ var dAmn = dAmn || {},
 						dAmn_Styler.chatroom_stylesheet(chatroom, abbr_title.substring(11,abbr_title.length));
 						style_added = true;
 					}
-					if(!style_added) this.remove_stylesheet();
 				}
+				if(!style_added) this.disable_current();
 			}
 		}
 	};
