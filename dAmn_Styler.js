@@ -29,7 +29,7 @@ var dAmn_Styler = {
 			return S;
 			}
 		},
-		'disable_current': function(){ this.current_stylesheet.disabled = true; },
+		'disable_current': function(){ if(this.current_stylesheet) this.current_stylesheet.disabled = true; },
 		'fix_scroll': function(){
 			var fix = function(){ dAmnChats[dAmn_Styler.current_room].onResize(true); };
 			fix(); setTimeout(fix, 1000);
