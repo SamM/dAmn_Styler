@@ -1,26 +1,17 @@
-function convert(method, conversion){
-    var self = this;
-    return function(){
-        var args = [].slice.call(arguments,0);
-        return conversion(method).apply(self,args);
-    };
-}
-
 var dAmn_Styler = {
 		'init': function(){
 			dAmn_Styler.check_title(dAmnChatTab_active);
-            window.dAmnChatTabs_activate = convert(dAmnChatTabs_activate, function(dCT_activate){
-                var self = this;
-                return function(){
-                    dAmn_Styler.check_title(arguments[0]);
-                    dCT_activate.apply(self, [].slice.call(arguments,0));
-                };
-            });
+			var dCT_activate = dAmnChatTabs_activate;
+			window.dAmnChatTabs_activate = function(){
+				dAmn_Styler.check_title(arguments[0]);
+				return dCT_activate.apply(this, [].slice.call(arguments,0));
+			};
 		},
-        'DEBUG': false,
+		'DEBUG': false,
 		'chatrooms': {},
 		'stylesheets': {},
 		'current_stylesheet': null,
+		'current_css_url': null,
 		'current_room': null,
 		
 		'stylesheet_request': function(id, url, parent){
@@ -29,7 +20,7 @@ var dAmn_Styler = {
 			S.href 	= url; //+'?'+Math.round(Math.random()*10000000).toString();
 			S.rel	= "stylesheet";
 			S.type	= "text/css";
-            parent = parent || document.body;
+			parent = parent || document.body;
 			parent.appendChild(S);
 			return S;
 		},
@@ -39,9 +30,11 @@ var dAmn_Styler = {
 			fix(); setTimeout(fix, 1000);
 		},
 		'chatroom_stylesheet': function(chatroom, url){
+			if(chatroom == this.current_room && url == this.current_css_url) return;
 			if(url.indexOf('http')<0) url = 'http://'+url;
 			if(this.current_stylesheet) this.current_stylesheet.disabled = true;
 			this.current_room = chatroom;
+			this.current_css_url = url;
 			if(this.stylesheets[chatroom] && this.chatrooms[chatroom] == url){
 				this.current_stylesheet = this.stylesheets[chatroom];
 				this.current_stylesheet.disabled = false;
@@ -52,7 +45,6 @@ var dAmn_Styler = {
 			dAmn_Styler.fix_scroll();
 		},
 		'check_title': function(chatroom){
-            if(dAmnChatTab_active == chatroom) return false;
 			var room = dAmnChats[chatroom];
 			if(room){
 				var title_abbrs = room.title_el.getElementsByTagName("abbr"),
