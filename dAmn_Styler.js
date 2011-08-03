@@ -61,4 +61,8 @@ var dAmn_Styler = {
 		}
 	};
 
-dAmn_Styler.init();
+if(dAmn_Client_Username) dAmn_Styler.init();
+else{
+var old_body_onload = body.onload || function(){};
+body.onload = function(e){ dAmn_Styler.init(); old_body_onload(e); }
+}
