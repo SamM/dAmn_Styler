@@ -18,7 +18,7 @@ var Script_Request = Script_Request || function(id, url, query, parent){
     S.type = 'text/javascript'; 
 	S.src = url + (function(q){ var out = []; for(var k in q) out.push([k,q[k]].join('=')); return '?'+out.join('&'); })(query);
     
-	parent = parent || document.body;
+	parent = parent || document.head;
     parent.appendChild(S);
     
 	return function(onload_callback){ S.onload = function(){ onload_callback(S); }; };
