@@ -16,7 +16,7 @@ var dAmn_Styler = {
                     dAmn_Styler.check_title(arguments[0]);
                     dCT_activate.apply(self, [].slice.call(arguments,0));
                 }
-            })
+            });
 		},
 		'chatrooms': {},
 		'stylesheets': {},
