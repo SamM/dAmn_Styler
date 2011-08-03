@@ -52,8 +52,8 @@ if(!window.dAmnChatTabs_activate) console.log('Uhoh...')
 			dAmn_Styler.fix_scroll();
 		},
 		'check_title': function(chatroom){
+			if(chatroom && dAmnChats[chatroom]){
 			var room = dAmnChats[chatroom];
-			if(room){
 				var title_abbrs = room.title_el.getElementsByTagName("abbr"),
 					abbr_title = '', style_added = false;
 				for(var abbr=0; abbr<title_abbrs.length; abbr++){
