@@ -8,13 +8,13 @@
 
 var Script_Request = Script_Request || function(id, url, query, parent){
 	query = query || {};
-	query['_random'] = Math.round(Math.random()*10000000).toString();
+	query._random = Math.round(Math.random()*10000000).toString();
     
     var el = document.getElementById(id);
 	if(el) el.parentNode.removeChild(el);
     
     var S = document.createElement('script');
-	if(id!=null) S.id = id;
+    if(id) S.id = id;
     S.type = 'text/javascript'; 
 	S.src = url + (function(q){ var out = []; for(var k in q) out.push([k,q[k]].join('=')); return '?'+out.join('&'); })(query);
     
