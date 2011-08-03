@@ -10,9 +10,6 @@ function convert(method, conversion){
 var dAmn_Styler = {
 		'init': function(){
 			dAmn_Styler.check_title(dAmnChatTab_active);
-		},
-        'DEBUG': false,
-        'tab_change_event': function(){
             window.dAmnChatTabs_activate = convert(dAmnChatTabs_activate, function(dCT_activate){
                 var self = this;
                 return function(){
@@ -20,21 +17,22 @@ var dAmn_Styler = {
                     dCT_activate.apply(self, [].slice.call(arguments,0));
                 };
             });
-        },
+		},
+        'DEBUG': false,
 		'chatrooms': {},
 		'stylesheets': {},
 		'current_stylesheet': null,
 		'current_room': null,
 		
 		'stylesheet_request': function(id, url, parent){
-			with(S = document.createElement('link')){
-				if(id) S.id = id;
-				S.href 	= url+'?'+Math.round(Math.random()*10000000).toString();
-				S.rel	= "stylesheet";
-				S.type	= "text/css";
-			(parent||document.body).appendChild(S);
+			var S = document.createElement('link');
+			if(id) S.id = id;
+			S.href 	= url+'?'+Math.round(Math.random()*10000000).toString();
+			S.rel	= "stylesheet";
+			S.type	= "text/css";
+            parent = parent || document.body;
+			parent.appendChild(S);
 			return S;
-			}
 		},
 		'disable_current': function(){ if(this.current_stylesheet) this.current_stylesheet.disabled = true; },
 		'fix_scroll': function(){
@@ -71,3 +69,5 @@ var dAmn_Styler = {
 			}
 		}
 	};
+
+dAmn_Styler.init();
