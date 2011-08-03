@@ -63,7 +63,7 @@ console.log('Username: '+dAmn_Client_Username);
 		}
 	};
 
-if(dAmn_Client_Username) dAmn_Styler.init();
+if(false) dAmn_Styler.init();
 else{
 var old_win_onload = window.onload || function(){};
 window.onload = function(e){ dAmn_Styler.init(); old_win_onload(e); }
