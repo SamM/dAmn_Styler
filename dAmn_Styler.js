@@ -1,4 +1,3 @@
-
 function convert(method, conversion){
     var self = this;
     return function(){
@@ -27,7 +26,7 @@ var dAmn_Styler = {
 		'stylesheet_request': function(id, url, parent){
 			var S = document.createElement('link');
 			if(id) S.id = id;
-			S.href 	= url+'?'+Math.round(Math.random()*10000000).toString();
+			S.href 	= url; //+'?'+Math.round(Math.random()*10000000).toString();
 			S.rel	= "stylesheet";
 			S.type	= "text/css";
             parent = parent || document.body;
