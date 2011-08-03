@@ -1,18 +1,22 @@
-var Script_Request = Script_Request || function(id, url, query, parent){
-	query = query || {};
-	query['_random'] = Math.round(Math.random()*10000000).toString();
-	if(el = document.getElementById(id)) el.parentNode.removeChild(el);
-	with(S = document.createElement('script')){
-		if(id!=null)S.id = id; S.type = 'text/javascript'; 
-		S.src = url + (function(q){ var out = []; for(var k in q) out.push([k,q[k]].join('=')); return '?'+out.join('&'); })(query);
-		(parent||document.body).appendChild(S);
-		var self = function(onload_callback){ S.onload = function(){ onload_callback(S); return self; }; };
-		return self; }};
-		
+
+function convert(method, conversion){
+    var self = this;
+    return function(){
+        var args = [].slice.call(arguments,0);
+        return conversion(method).apply(self,args);
+    };
+}
+
 var dAmn_Styler = {
 		'init': function(){
 			dAmn_Styler.check_title(dAmnChatTab_active);
-			Whenever(window, 'dAmnChatTabs_activate', function(args){ return dAmnChatTab_active != args[0];})(function(a){ dAmn_Styler.check_title(a[0]); });
+            window.dAmnChatTabs_activate = convert(dAmnChatTabs_activate, function(dCT_activate){
+                var self = this;
+                return function(){
+                    dAmn_Styler.check_title(arguments[0]);
+                    dCT_activate.apply(self, [].slice.call(arguments,0));
+                }
+            })
 		},
 		'chatrooms': {},
 		'stylesheets': {},
@@ -48,6 +52,7 @@ var dAmn_Styler = {
 			dAmn_Styler.fix_scroll();
 		},
 		'check_title': function(chatroom){
+            if(dAmnChatTab_active == chatroom) return false;
 			var room = dAmnChats[chatroom];
 			if(room){
 				var title_abbrs = room.title_el.getElementsByTagName("abbr"),
@@ -63,4 +68,3 @@ var dAmn_Styler = {
 			}
 		}
 	};
-Script_Request('whenever_events', 'http://github.com/SamM/dAmn_Styler/raw/master/whenever.js')(function(script){ dAmn_Styler.init(); });
