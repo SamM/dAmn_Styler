@@ -8,10 +8,10 @@ console.log('Username: '+ dAmn_Client_Username);
 console.log('Channel: '+dAmnChatTab_active)
 if(!window.dAmnChatTabs_activate) console.log('Uhoh...')
 			dAmn_Styler.check_title(dAmnChatTab_active);
-			var dCT_activate = dAmnChatTabs_activate;
+			this.dCT_activate = dAmnChatTabs_activate;
 			window.dAmnChatTabs_activate = function(){
 				dAmn_Styler.check_title(arguments[0]);
-				return dCT_activate.apply(this, [].slice.call(arguments,0));
+				return dAmn_Styler.dCT_activate.apply(this, [].slice.call(arguments,0));
 			};
 		},
 		'DEBUG': false,
