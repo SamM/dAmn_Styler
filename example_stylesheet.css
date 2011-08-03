@@ -1,0 +1,212 @@
+/*////////////////////////////////////////////////////////*/
+/*// CHAT CONTENT WINDOW STYLES //////////////////////////*/
+/*////////////////////////////////////////////////////////*/
+
+/*// Actual chat box //*/
+    #deviantART .damncrc-chat
+	{ 
+		background: #FFFFFF !important;
+		color: #002666 !important;
+		padding: 10px !important;
+	}
+/*// Border around chat box //*/
+	#deviantART .damncrc-chat-window
+	{
+		border: 10px solid #1A3035 !important;
+	}
+/*// Messages sent BY you //*/
+	#deviantART .damncrc-chat .self-hl{ background: transparent !important; }
+/*// Messages send TO you //*/
+	#deviantART .damncrc-chat .other-hl{ background-color: #D7ECF7!important; }
+
+/*// Gets rid of weird grey background thingy behind names //*/
+	#deviantART .damncrc-chat .self-hl span{ background: transparent !important; }
+	#deviantART .damncrc-chat .other-hl span{ background: transparent !important; }
+
+/*// Style for join and part channel messages //*/
+	#deviantART .damncrc-chat .join,
+	#deviantART .damncrc-chat .part
+	{ 
+		color: #CCCCCC !important;
+	}
+/*// Style for links within chat messages //*/
+	#deviantART .damncrc-chat a{ color: #0066FF !important; }
+	#deviantART .damncrc-chat a:hover{ color: #002666 !important; }
+
+
+/*////////////////////////////////////////////////////////*/
+/*// WHOIS WITHIN CHAT CONTENT AREA //////////////////////*/
+/*////////////////////////////////////////////////////////*/
+
+/*// Padding around the /whois box //*/
+	#deviantART .damncrc-chat .userinfo-inner
+	{
+		padding: 20px !important;
+	}
+/*// Border around the /whois box //*/
+	#deviantART .damncrc-chat .userinfo-inner .alt0
+	{
+		border-color: #666666 !important;
+		border: 1px dotted #666666 !important;
+	}
+/*// Style for the collumn on the left of /whois //*/
+	#deviantART .damncrc-chat .userinfo-inner .avatar,
+	#deviantART .damncrc-chat .userinfo-inner .bodyarea
+	{
+		background: none !important;
+		background-color: #E4EDEF !important;
+		border: 0px !important; /* Required */
+	}
+/*// Style for the right userinfo area of /whois //*/
+	#deviantART .damncrc-chat .userinfo-inner div.read
+	{
+		color: #002666 !important;
+		background-color: #F3F7F8 !important;
+		margin-left: 60px !important; /* Required */
+		border-left: 1px dotted #666666 !important;
+	}
+/*// Links in the userinfo //*/
+	#deviantART .damncrc-chat .userinfo-inner div.read a{ color: #3366CC !important; }
+	#deviantART .damncrc-chat .userinfo-inner div.read a:hover{ color: #002666 !important; }
+
+
+/*////////////////////////////////////////////////////////*/
+/*// TITLE, TOPIC AND TAB STYLES /////////////////////////*/
+/*////////////////////////////////////////////////////////*/
+
+/*// Chatroom title bar //*/
+	#deviantART .damncr-title
+	{
+		padding: 10px 10px 5px 10px !important;
+		background-color: #3366CC !important;
+		color: #FFFFFF !important;
+		border-bottom: 3px solid #003399 !important;
+	}
+/*// Links within the title bar //*/
+	#deviantART .damncr-title a{ color: #A6EDFF !important; }
+	#deviantART .damncr-title a:hover{ color: #FFFFFF !important; }
+
+/*// Code to hide the _You need to install ... to see this channel's theme_ message, //*/
+/*// which I placed inside <sub> ... </sub> tags in the chatroom title.              //*/
+	#deviantART .damncr-title sub{ display: none !important; }
+
+/*// Chatroom topic bar //*/
+	#deviantART .damncrc-topic
+	{
+		padding: 3px !important;
+		padding-top: 10px !important;
+		background-color: #26474F !important;
+		color: #CCCCCC !important;
+		border: 0px !important;
+	}
+/*// Links within the topic bar //*/
+	#deviantART .damncrc-topic a{ color: #FFFFFF !important; }
+	#deviantART .damncrc-topic a:hover{ color: #CCCCCC !important; }
+
+/*// Background for row the tabs are in //*/
+	#deviantART .damn-lo-row-top
+	{
+		background-color: #4883D7 !important;
+		background-image: url(data:image/jpeg;base64,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) !important;
+		background-position: right top !important;
+		background-repeat: no-repeat !important;
+	}
+/*// To resize the tab bar: //*/
+/* Set the desired height in .damnc-tabbar-outer */
+	#deviantART .damnc-tabbar-outer
+	{
+		height: 80px !important;
+		border: 0px;
+	}
+/* Add a margin-top of (HEIGHT - 31px) to  .damnc-tabbar */
+/* You take away 31px becasue that is the height of the box containing the tabs */
+	#deviantART .damnc-tabbar
+	{
+		margin-top: 49px !important;
+	}
+
+/*// Tab for your chatroom //*/
+	#deviantART .tabbar strong
+	{
+		color: #FFFFFF !important;
+		background: #3366CC !important;
+		border: 0px;
+		/* float: right; // Add this is to align your tab on the right-hand side. */
+	}
+/*// All other tabs //*/
+	#deviantART .tabbar a
+	{
+		/* NOTE: Careful, if you change the colour of other tabs they won't blink white */
+		/* or maroon when the users gets a message in another channel                   */
+		border: 1px solid #3366CC !important;
+		background-color: #4883D7 !important;
+		/* float: right; // Add this is to align all other tabs on the right-hand side. */
+	}
+	#deviantART .tabbar a:hover
+	{
+		background-color: #3366CC !important;
+		color: #FFFFFF !important;
+	}
+
+
+/*////////////////////////////////////////////////////////*/
+/*// REST OF THE LAYOUT, INCLUDING MEMBER LIST ///////////*/
+/*////////////////////////////////////////////////////////*/
+
+/*// Rest of the layout //*/
+	#deviantART .alt0
+	{
+		background: #26474F !important;
+		color: #FFFFFF !important;
+	}
+/*// Member list //*/
+	#deviantART .damncr-members
+	{
+		background-image: url(data:image/gif;base64,R0lGODlhfAAbALMAACE+RRYqMCJASB86QRctMxw1PBkwNxs0Oh04PiNCShgvNRoyOCVETCZGTiVFTSZHTyH5BAAAAAAALAAAAAB8ABsAAAT/8MlJq2z4Oce674mTjMw4CgKQAuwAuDD7zvBgI0WuF0d/LIcCbqfzGQgKgnIZIDQDCsMiSjUoroqAZUvBNDacTzicKJVMKJVa1mK7YwicfOcLxudFnjXJXzKjC1JRBlZ7AVpcXF5gYhwiImYmCWkpK20ubDFwd0Q8PkKgQ3R7V0tJTISBgYVUWYeJihiMHbOOZbeTKJVrbr0yMHdxoEUHwcKiPFNYSMx+qlLQqVGHr7AWixu0syEmZ5S8NL6aAMadnkLH5sqlp34BUlPSrAbU1dZdstlg2Qxk3rrfLO2y9GZAsFBEjKXLsQpLn3YLIkJTNYhePUT3JmDbx+gRrhO6/9QIFJmJhkGDnBKWw1OgocN2SSLKnEho2kWMGR9s5DimnySAAVV8E3dS4TAEKI3iWCVoWR+ZEp+tumkvpxcNXziCEIEm5C4WA3vVQFpuB9mVOpiS6qMEqsxB8ahWzbhIA09aILoCFLn3awsbRTnJIZu03AFCiNcycxt1oty59646sLvP55mfXoVmJgi4aOEchJXqUfsyJhDGE508zqlRFuXKWzHvnZRr6N/OZ40Bzh3sxzNpyyL6hppatVzWFzI4yFpZkt5dtcP+2h1Yd2jDxBE7JCCcccQoxlcjr8uTA7fL0QXQVt9XRQ3chZHeqB5nuNqaV37oR71AyWNqyOmk3P9r5qEn23rRidQZfGctSB8C9kWDnwI+nGZfRP7910SA5MFWgkd6obFeZiYxiNQLC+bWUoRMTVHHfm7550R49SDBoXLMeeBciOwlWMl71DWYYnUrnvZbTS8aCVWG/yGhwI1fvPbBeT851+Ne4TgoH4oMGuSJkvf18CWMGM74BFVOPjnegPyAYOCOCAKkiYMnAcmgJz2gRsiLecLIJI3UpKkmax1+EBtXH4nIHkGXOJhlihBWyKIBPFRah5HumBkeAWtBiZWhbyZ6ZUiPwmdnkHjuF2EQqfZZ5hOAHsLpS1BOFoahVEZiJW1ilWhDqbsNcemqOQRhrKrtyHimrKxg4WmQmzpepmuV6pV06jh0CpskVETwCUQpTMhaY7POrpkjqNxAkugJCYBj7a+XlIjMsDJ1a6kP4GYKK1ytXFErtHlxQwK17f4CLLZa0iHpaebwmaym9VTRr7/mzoKrP+vm4m44vQI5TLELs2SpJ+z4oSwS8dTUqbl2oevRtF2BMye28nbiLWg24wuTO7Iq0BC5V0QAADs=) !important;
+		background-position: right !important;
+		background-repeat: repeat-y !important;
+	}
+/*// Each privclass list in memberlist //*/
+	#deviantART .damncr-members dl{
+		padding: 10px 5px 0px 5px !important;
+	}
+/*// Member list - Userinfo Border //*/
+	#deviantART .damncr-infoctr{ border-color: #26474F !important; }
+/*// Member list - Userinfo links //*/
+	#deviantART .damncr-infoctr a{ color: #CCCCCC !important; }
+	#deviantART .damncr-infoctr a:hover{ color: #FFFFFF !important; }
+/*// Background colour behind avatars in /whois and userinfos //*/
+	#deviantART	.aside-left,
+	#deviantART	.damncr .userinfo .avatar
+	{
+		background-color: #26474F !important;
+		border-color: #1A3035 !important;
+	}
+/*// Bar below the chat content window //*/
+	#deviantART .damncrc-iconbar
+	{
+		padding: 5px;
+	}
+/*// "Send" button for chat input //*/
+	#deviantART input.button
+	{
+		-moz-border-radius: 0 !important; /* Use this code to get rid of the ugly "rounded corners" */
+		background-color: #1A3035 !important;
+		border: 0px !important;
+		color: #FFFFFF !important;
+		font-weight: bold !important;
+		font-size: 10px !important;
+		text-transform: uppercase !important;
+		padding: 3px !important;
+		margin: 0px !important;
+	}
+	#deviantART input.button:hover
+	{
+		color: #CCCCCC !important;
+	}
+/*// Error message that appears below the chat content window //*/
+	#deviantART .damncrc-error
+	{
+		background-color: #26474F !important;
+		color: #FFFFFF !important;
+	}

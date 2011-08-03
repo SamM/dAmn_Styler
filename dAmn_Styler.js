@@ -10,14 +10,17 @@ function convert(method, conversion){
 var dAmn_Styler = {
 		'init': function(){
 			dAmn_Styler.check_title(dAmnChatTab_active);
+		},
+        'DEBUG': false,
+        'tab_change_event': function(){
             window.dAmnChatTabs_activate = convert(dAmnChatTabs_activate, function(dCT_activate){
                 var self = this;
                 return function(){
                     dAmn_Styler.check_title(arguments[0]);
                     dCT_activate.apply(self, [].slice.call(arguments,0));
-                }
+                };
             });
-		},
+        },
 		'chatrooms': {},
 		'stylesheets': {},
 		'current_stylesheet': null,
