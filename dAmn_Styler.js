@@ -63,6 +63,6 @@ var dAmn_Styler = {
 
 if(dAmn_Client_Username) dAmn_Styler.init();
 else{
-var old_body_onload = body.onload || function(){};
-body.onload = function(e){ dAmn_Styler.init(); old_body_onload(e); }
+var old_body_onload = document.body.onload || function(){};
+document.body.onload = function(e){ dAmn_Styler.init(); old_body_onload(e); }
 }
