@@ -1,4 +1,7 @@
-var dAmn_Styler = {
+var dAmn_Styler;
+
+function init_dAmn_Styler(){
+dAmn_Styler = {
 		'init': function(){
 console.log('dAmn Styler initializing');
 console.log('Username: '+window.dAmn_Client_Username);
@@ -63,9 +66,7 @@ if(!window.dAmnChatTabs_activate) console.log('Uhoh...')
 			}
 		}
 	};
-
-if(false) dAmn_Styler.init();
-else{
+dAmn_Styler.init();
+};
 var old_win_onload = window.onload || function(){};
-window.onload = function(e){ dAmn_Styler.init(); old_win_onload(e); }
-}
+window.onload = function(e){ init_dAmn_Styler(); old_win_onload(e); }
