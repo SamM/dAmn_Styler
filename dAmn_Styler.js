@@ -1,7 +1,8 @@
 var dAmn_Styler = {
 		'init': function(){
 console.log('dAmn Styler initializing');
-console.log('Username: '+dAmn_Client_Username);
+console.log('Username: '+window.dAmn_Client_Username);
+if(!window.dAmnChatTabs_activate) console.log('Uhoh...')
 			dAmn_Styler.check_title(dAmnChatTab_active);
 			var dCT_activate = dAmnChatTabs_activate;
 			window.dAmnChatTabs_activate = function(){
